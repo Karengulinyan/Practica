@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Penkov</string>
     <string name="sys">НМедиа!</string>
+    <string name="text">NIKE</string>
+    <string name="text1">21 мая в 18:36</string>
+    <string name="text2">Найди свой стиль танца на регулярных классах в Nike Box MSK. От хип-хопа до вога и от дэнсхолла до хауса – можно пробовать новые направления хоть каждый день. У нас есть занятия не только для взрослых, но и для самых юных танцоров. Все классы бесплатные, а уровень подготовки не имеет значения.</string>
+    <string name="_27">27</string>
+    <string name="_8">8</string>
+    <string name="_12">12</string>
 </resources>
