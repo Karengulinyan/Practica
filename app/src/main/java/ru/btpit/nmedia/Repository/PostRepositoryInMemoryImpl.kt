@@ -6,6 +6,7 @@ import ru.btpit.nmedia.Post
 
 
 class PostRepositoryInMemoryImpl: PostRepository {
+    private var nextId = 1L
     private var posts = listOf(
         Post(
             id = 2,
@@ -56,4 +57,32 @@ class PostRepositoryInMemoryImpl: PostRepository {
         }
         data.value = posts
     }
+
+    override fun save(post: Post)
+    {
+        if (post.id == 0L) {
+            posts = listOf(
+                post.copy(
+                    id = nextId++,
+                    author = "Me",
+                    likedByMe = false,
+                    published = "now"
+                )
+            ) + posts
+            data.value = posts
+            return
+        }
+
+        posts = posts.map {
+            if (it.id != post.id) it else it.copy(content = post.content)
+        }
+        data.value = posts
+    }
+
+    override fun removeById(id: Long)
+    {
+        posts = posts.filter { it.id != id }
+        data.value = posts
+    }
+
 }
