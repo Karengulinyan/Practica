@@ -50,9 +50,13 @@ class PostViewHolder(
             textView1.text = post.author
             textView2.text = post.published
             textView3.text = post.content
-            imageView10.setImageResource(
+            /*imageView10.setImageResource(
                 if (post.likedByMe) R.drawable.heart_svgrepo_com else R.drawable.hearth_svgrepo_com
-            )
+            )*/
+            like.isChecked = post.likedByMe
+            like.text = "${post.likes}"
+
+
             imageView15.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
