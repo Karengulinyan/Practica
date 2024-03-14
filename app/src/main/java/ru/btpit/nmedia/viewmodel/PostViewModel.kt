@@ -7,6 +7,8 @@ import ru.btpit.nmedia.Repository.PostRepository
 import ru.btpit.nmedia.Repository.PostRepositoryInMemoryImpl
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import ru.btpit.nmedia.Repository.PostRepositorySQLiteImpl
+import ru.btpit.nmedia.db.AppDb
 
 private val empty = Post(
     id = 0,
@@ -16,7 +18,8 @@ private val empty = Post(
     published = ""
 )
 class PostViewModel(application: Application): AndroidViewModel(application) {
-    private val repository: PostRepository = PostRepositoryInMemoryImpl()
+    private val repository: PostRepository = PostRepositorySQLiteImpl(
+        AppDb.getInstance(application).postDao)
 
     val data = repository.getAll()
     val edited = MutableLiveData(empty)
