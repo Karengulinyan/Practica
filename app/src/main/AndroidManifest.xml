@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IntentHandlerActivity"
+            android:name=".AppActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewPostActivity"
+            android:name=".NewPostFragment"
             android:exported="false" />
     </application>
 </manifest>

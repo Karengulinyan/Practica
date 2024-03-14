@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import ru.btpit.nmedia.Post
 import ru.btpit.nmedia.Repository.PostRepository
 import ru.btpit.nmedia.Repository.PostRepositoryInMemoryImpl
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 
 private val empty = Post(
     id = 0,
@@ -13,7 +15,7 @@ private val empty = Post(
     likedByMe = false,
     published = ""
 )
-class PostViewModel: ViewModel() {
+class PostViewModel(application: Application): AndroidViewModel(application) {
     private val repository: PostRepository = PostRepositoryInMemoryImpl()
 
     val data = repository.getAll()
